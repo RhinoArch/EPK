@@ -22,16 +22,16 @@
             position: relative;
         }
 
-        /* Animated Film Grain Overlay - Set over top of all elements */
+        /* Animated Film Grain Overlay */
         .film-grain {
             position: fixed;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            pointer-events: none; /* Allows clicking links and playing videos through the overlay */
-            z-index: 9999; /* Forces grain to sit over top of text, images, and content */
-            opacity: 0.10; /* Lowered opacity for a darker, subtle film look */
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.10;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             animation: grain 0.5s steps(6) infinite;
         }
@@ -93,6 +93,15 @@
             border: 1px solid #22222e; 
             margin-top: 25px; 
         }
+
+        /* Behold Widget Wrapper */
+        .instagram-wrapper {
+            margin-top: 25px;
+            background: #111116;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #22222e;
+        }
         
         /* Embedded Video Grid */
         .video-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-top: 25px; }
@@ -119,7 +128,7 @@
 </head>
 <body>
 
-    <!-- Film Grain Overlay Div (Positioned Over Everything) -->
+    <!-- Film Grain Overlay -->
     <div class="film-grain"></div>
 
     <!-- Header Logo -->
@@ -129,8 +138,20 @@
     </div>
 
     <h2>Bio</h2>
-    <p>Born from deep personal adversity and unrelenting survival, S0RD is a darkwave/post-punk project based out of Oklahoma City. Following years of severe trial—from surviving homelessness and joblessness to overcoming deep personal betrayal—S0RD turned entirely to music as a vital lifeline.</p>
-    <p>At the core of the S0RD sound are driving electric basslines anchored by striking guitar leads—seamlessly shifting between syncopated, bite-heavy crunch and expansive, dreamy atmospheres. Sparse, selective melodic accents (like glassy bell tones and dark organ patches) frame the arrangement, but the heavy rhythmic push and dual guitar/bass dynamics carry the weight. Taking full control of composition, production, and performance, S0RD delivers pure artistic independence, turning real-life grit into raw post-punk urgency.</p>
+    <p>Born from deep personal adversity and unrelenting survival, S0RD is a darkwave/post-punk solo project based out of Oklahoma City. Following years of severe trial—from surviving homelessness and joblessness to overcoming deep personal betrayal—S0RD turned entirely to music as a vital lifeline.</p>
+    <p>Backed by over seven years of active DJ experience in live audio selection and crowd dynamics, S0RD brings acute precision to live performance. The sound is driven by heavy, prominent basslines anchored by striking guitar leads—seamlessly shifting between syncopated, bite-heavy crunch and expansive, dreamy atmospheres. Combined with sparse, glassy melodic accents and dark organ textures, S0RD delivers complete artistic independence and raw post-punk urgency.</p>
+
+    <h2>Instagram Feed</h2>
+    <div class="instagram-wrapper">
+        <behold-widget feed-id="GMHqEiS1UWh1rdqhfhl9"></behold-widget>
+        <script>
+          (() => {
+            if(window.__bhldScript)return;window.__bhldScript=true;
+            const d=document,s=d.createElement("script");s.type="module";
+            s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
+          })();
+        </script>
+    </div>
 
     <h2>Streaming Links</h2>
     <ul>
