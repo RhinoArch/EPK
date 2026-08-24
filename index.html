@@ -22,16 +22,16 @@
             position: relative;
         }
 
-        /* Animated Film Grain Overlay */
+        /* Animated Film Grain Overlay - Set over top of all elements */
         .film-grain {
             position: fixed;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            pointer-events: none;
-            z-index: 999;
-            opacity: 0.18; /* Adjust opacity here for more/less intense grain */
+            pointer-events: none; /* Allows clicking links and playing videos through the overlay */
+            z-index: 9999; /* Forces grain to sit over top of text, images, and content */
+            opacity: 0.10; /* Lowered opacity for a darker, subtle film look */
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             animation: grain 0.5s steps(6) infinite;
         }
@@ -70,7 +70,7 @@
             margin-top: 10px;
         }
 
-        a { color: #9d65ff; text-decoration: none; transition: color 0.2s ease; position: relative; z-index: 1000; }
+        a { color: #9d65ff; text-decoration: none; transition: color 0.2s ease; }
         a:hover { color: #b78eff; text-decoration: underline; }
         
         blockquote { 
@@ -105,8 +105,6 @@
             border-radius: 6px; 
             border: 1px solid #22222e; 
             text-align: center; 
-            position: relative;
-            z-index: 1000;
         }
         .video-card h4 { 
             margin: 0 0 12px 0; 
@@ -121,7 +119,7 @@
 </head>
 <body>
 
-    <!-- Film Grain Overlay Div -->
+    <!-- Film Grain Overlay Div (Positioned Over Everything) -->
     <div class="film-grain"></div>
 
     <!-- Header Logo -->
