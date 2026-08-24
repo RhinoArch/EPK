@@ -6,6 +6,8 @@
     <title>S0RD - Electronic Press Kit</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0e0e10; color: #e1e1e6; line-height: 1.6; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .logo-container { text-align: center; margin-bottom: 20px; }
+        .logo-container img { max-width: 100%; height: auto; max-height: 180px; }
         h1, h2, h3 { color: #fff; border-bottom: 1px solid #333; padding-bottom: 8px; margin-top: 30px; }
         a { color: #8257e5; text-decoration: none; }
         a:hover { text-decoration: underline; }
@@ -13,32 +15,79 @@
         ul { padding-left: 20px; }
         li { margin-bottom: 8px; }
         .contact-box { background: #18181b; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        
+        /* Embedded Video Grid */
+        .video-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 20px; }
+        @media(min-width: 600px) {
+            .video-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .video-card { background: #18181b; padding: 12px; border-radius: 8px; text-align: center; }
+        .video-card h4 { margin: 0 0 10px 0; color: #fff; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; }
+        .video-container.short { padding-bottom: 177.78%; } /* 9:16 aspect ratio for shorts */
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     </style>
 </head>
 <body>
 
-    <h1>ELECTRONIC PRESS KIT: S0RD</h1>
+    <!-- Header Logo -->
+    <div class="logo-container">
+        <img src="logo.jpg" alt="S0RD Logo">
+        <p style="letter-spacing: 2px; text-transform: uppercase; color: #888; font-size: 0.9rem;">Electronic Press Kit</p>
+    </div>
 
     <h2>BIO</h2>
     <p>Born from deep personal adversity and unrelenting survival, <strong>S0RD</strong> is a darkwave/post-punk project based out of Oklahoma City. Following years of severe trial—from surviving homelessness and joblessness to overcoming deep personal betrayal—<strong>S0RD</strong> turned entirely to music as a vital lifeline.</p>
     <p>At the core of the <strong>S0RD</strong> sound are driving electric basslines anchored by striking guitar leads—seamlessly shifting between syncopated, bite-heavy crunch and expansive, dreamy atmospheres. Sparse, selective melodic accents (like glassy bell tones and dark organ patches) frame the arrangement, but the heavy rhythmic push and dual guitar/bass dynamics carry the weight. Taking full control of composition, production, and performance, <strong>S0RD</strong> delivers pure artistic independence, turning real-life grit into raw post-punk urgency.</p>
 
-    <h2>MUSIC & VIDEOS</h2>
+    <h2>STREAMING LINKS</h2>
     <ul>
         <li><strong>Linktree:</strong> <a href="https://linktr.ee/s0rd" target="_blank">linktr.ee/s0rd</a></li>
         <li><strong>Spotify:</strong> <a href="https://open.spotify.com/s/cs8f9IQ" target="_blank">S0RD on Spotify</a></li>
-        <li><strong>Apple Music:</strong> <a href="https://music.apple.com/us/artist/s0rd/1718124334" target="_blank">S0RD on Apple Music</a></li>
-        <li><strong>YouTube Channel:</strong> <a href="https://youtube.com/channel/UCCRdbfWScsjAhk6tT9fFwLw?si=D33bCSFDtXjYn64u" target="_blank">@S0RDTUNES</a></li>
+        <li><strong>Apple Music:</strong> <a href="https://music.apple.com/us/artist/s0rd" target="_blank">S0RD on Apple Music</a></li>
+        <li><strong>YouTube Channel:</strong> <a href="https://youtube.com/channel/UCCRdbfWScsjAhk6tT9fFwLw" target="_blank">@S0RDTUNES</a></li>
     </ul>
 
-    <h3>Featured Highlights</h3>
-    <ul>
-        <li><a href="https://youtube.com/shorts/0ks-uAr8xQo?is=szNOdfUhXO02F_24" target="_blank">"CAPSAICIN" Live Performance</a></li>
-        <li><a href="https://youtu.be/eym2l1j_99I?is=tPfUWPzyDzL6RKi7" target="_blank">"Rot & Decay" Performance</a></li>
-        <li><a href="https://youtube.com/shorts/QkkNS-m0Lzc?is=ywmDYoLenoQIVdRY" target="_blank">"The Count" In-Studio</a></li>
-        <li><a href="https://youtube.com/shorts/N_x_jmFGEQE?is=9Bpfer_695SqQbYG" target="_blank">Latest Single Live</a></li>
-        <li><a href="https://youtu.be/cbgz7iW5Cy0?is=ZV3zqhX0OiXjMlVf" target="_blank">"Night Stalker" Live</a></li>
-    </ul>
+    <h2>PERFORMANCE & VISUAL HIGHLIGHTS</h2>
+    
+    <div class="video-grid">
+        <!-- Full Landscape Videos -->
+        <div class="video-card" style="grid-column: 1 / -1;">
+            <h4>"Rot & Decay" Performance Video</h4>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/eym2l1j_99I" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="video-card" style="grid-column: 1 / -1;">
+            <h4>"Night Stalker" Live</h4>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/cbgz7iW5Cy0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Vertical Video Shorts Side-by-Side -->
+        <div class="video-card">
+            <h4>"CAPSAICIN" Live Performance</h4>
+            <div class="video-container short">
+                <iframe src="https://www.youtube.com/embed/0ks-uAr8xQo" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <h4>"The Count" In-Studio</h4>
+            <div class="video-container short">
+                <iframe src="https://www.youtube.com/embed/QkkNS-m0Lzc" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <h4>Latest Single Live</h4>
+            <div class="video-container short">
+                <iframe src="https://www.youtube.com/embed/N_x_jmFGEQE" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 
     <h2>PRESS QUOTE</h2>
     <blockquote>"Through betrayal, homelessness, and heartbreak, music has been the single constant keeping me grounded. S0RD is the product of taking all of that noise and turning it into raw, unrelenting energy."</blockquote>
