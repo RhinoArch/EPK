@@ -112,7 +112,7 @@
             border: 1px solid #22222e;
         }
         
-        /* Embedded Video Grid */
+        /* Embedded Video Grid & Cards */
         .video-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-top: 25px; }
         @media(min-width: 600px) {
             .video-grid { grid-template-columns: 1fr 1fr; }
@@ -123,6 +123,9 @@
             border-radius: 6px; 
             border: 1px solid #22222e; 
             text-align: center; 
+        }
+        .video-card.featured {
+            margin-top: 25px;
         }
         .video-card h4 { 
             margin: 0 0 12px 0; 
@@ -149,6 +152,14 @@
     <h2>Bio</h2>
     <p>Born from deep personal adversity and unrelenting survival, S0RD is a darkwave/post-punk solo project based out of Oklahoma City. Following years of severe trial—from surviving homelessness and joblessness to overcoming deep personal betrayal—S0RD turned entirely to music as a vital lifeline.</p>
     <p>Backed by over seven years of active DJ experience in live audio selection and crowd dynamics, S0RD brings acute precision to live performance. The sound is driven by heavy, prominent basslines anchored by striking guitar leads—seamlessly shifting between syncopated, bite-heavy crunch and expansive, dreamy atmospheres. Combined with sparse, glassy melodic accents and dark organ textures, S0RD delivers complete artistic independence and raw post-punk urgency.</p>
+
+    <!-- Promoters Featured Live Video -->
+    <h2>Featured Promoter Coverage</h2>
+    <div class="video-card featured">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/YAOy6X7TZbo" allowfullscreen></iframe>
+        </div>
+    </div>
 
     <!-- SoundCloud Track: NTN -->
     <div class="sc-embed-container">
