@@ -1,6 +1,3 @@
-
-
-Sord epk · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,16 +11,107 @@ Sord epk · HTML
         body {
             font-family: 'Pirata One', cursive, Georgia, serif;
             font-size: 1.25rem;
-            background: #08080a;
-            color: #d1d1d6;
+            background: radial-gradient(ellipse at center, #141414 0%, #030303 80%);
+            color: #cfcfcf;
             line-height: 1.6;
             padding: 20px;
             max-width: 850px;
             margin: 0 auto;
             letter-spacing: 0.5px;
             position: relative;
+            filter: grayscale(0.55) contrast(1.1);
         }
- 
+
+        .vignette {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.75) 100%);
+        }
+
+        .flicker {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9997;
+            background: rgba(255,255,255,0.02);
+            animation: flicker 4s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 0; }
+            48% { opacity: 0; }
+            50% { opacity: 1; }
+            52% { opacity: 0; }
+            73% { opacity: 0; }
+            75% { opacity: 0.6; }
+            77% { opacity: 0; }
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9996;
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(255,255,255,0.035) 0px,
+                rgba(255,255,255,0.035) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+        }
+
+        .film-scratches {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9995;
+            opacity: 0.5;
+            background-image:
+                linear-gradient(90deg, transparent 15%, rgba(255,255,255,0.06) 15.2%, transparent 15.4%),
+                linear-gradient(90deg, transparent 42%, rgba(255,255,255,0.04) 42.15%, transparent 42.3%),
+                linear-gradient(90deg, transparent 68%, rgba(255,255,255,0.05) 68.1%, transparent 68.25%),
+                linear-gradient(90deg, transparent 83%, rgba(255,255,255,0.03) 83.2%, transparent 83.4%);
+            animation: scratchShift 7s infinite steps(1);
+        }
+
+        @keyframes scratchShift {
+            0%   { background-position-x: 0%; }
+            25%  { background-position-x: 8%; }
+            50%  { background-position-x: -5%; }
+            75%  { background-position-x: 3%; }
+            100% { background-position-x: 0%; }
+        }
+
+        /* Archival still frame images scattered through the page */
+        .still-frame {
+            margin: 30px auto;
+            max-width: 380px;
+            border: 1px solid #333;
+            padding: 6px;
+            background: #0a0a0a;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            text-align: center;
+        }
+        .still-frame img {
+            width: 100%;
+            display: block;
+            filter: grayscale(1) contrast(1.2);
+        }
+        .still-frame.float-left { float: left; margin-right: 25px; max-width: 220px; }
+        .still-frame.float-right { float: right; margin-left: 25px; max-width: 220px; }
+        .still-frame .caption {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #666;
+            margin-top: 6px;
+        }
+        .clearfix::after { content: ""; display: table; clear: both; }
+
         .film-grain {
             position: fixed;
             top: -50%;
@@ -36,7 +124,7 @@ Sord epk · HTML
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             animation: grain 0.5s steps(6) infinite;
         }
- 
+
         @keyframes grain {
             0%, 100% { transform: translate(0, 0); }
             10% { transform: translate(-5%, -10%); }
@@ -45,80 +133,80 @@ Sord epk · HTML
             70% { transform: translate(9%, 4%); }
             90% { transform: translate(-2%, 7%); }
         }
- 
+
         .logo-container { text-align: center; margin-bottom: 30px; }
         .logo-container img { max-width: 100%; height: auto; max-height: 180px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.1)); }
- 
+
         h1, h2, h3, h4 {
             font-family: 'UnifrakturMaguntia', cursive, serif;
             font-weight: 400;
             color: #ffffff;
-            border-bottom: 1px solid #2a2a35;
+            border-bottom: 1px solid #333333;
             padding-bottom: 8px;
             margin-top: 35px;
             font-size: 2.2rem;
             letter-spacing: 1px;
         }
- 
+
         .epk-subhead {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             font-style: normal;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #888899;
+            color: #999999;
             font-size: 0.85rem;
             margin-top: 10px;
         }
- 
-        a { color: #9d65ff; text-decoration: none; transition: color 0.2s ease; }
-        a:hover { color: #b78eff; text-decoration: underline; }
- 
+
+        a { color: #a10c0c; text-decoration: none; transition: color 0.2s ease; }
+        a:hover { color: #e01313; text-decoration: underline; }
+
         blockquote {
-            border-left: 3px solid #9d65ff;
+            border-left: 3px solid #a10c0c;
             margin: 20px 0;
             padding: 10px 20px;
-            color: #b0b0c0;
-            background: rgba(157, 101, 255, 0.05);
+            color: #c2c2c2;
+            background: rgba(161, 12, 12, 0.08);
             font-size: 1.35rem;
         }
- 
+
         ul { padding-left: 20px; }
         li { margin-bottom: 10px; }
         strong { color: #fff; font-size: 1.3rem; }
- 
+
         .contact-box {
-            background: #111116;
+            background: #121212;
             padding: 20px;
             border-radius: 6px;
-            border: 1px solid #22222e;
+            border: 1px solid #2b2b2b;
             margin-top: 25px;
         }
- 
+
         .sc-embed-container, .bc-embed-container {
             margin: 20px 0;
-            background: #111116;
+            background: #121212;
             padding: 12px;
             border-radius: 6px;
-            border: 1px solid #22222e;
+            border: 1px solid #2b2b2b;
         }
- 
+
         .instagram-wrapper {
             margin-top: 25px;
-            background: #111116;
+            background: #121212;
             padding: 15px;
             border-radius: 6px;
-            border: 1px solid #22222e;
+            border: 1px solid #2b2b2b;
         }
- 
+
         .video-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-top: 25px; }
         @media(min-width: 600px) {
             .video-grid { grid-template-columns: 1fr 1fr; }
         }
         .video-card {
-            background: #111116;
+            background: #121212;
             padding: 15px;
             border-radius: 6px;
-            border: 1px solid #22222e;
+            border: 1px solid #2b2b2b;
             text-align: center;
         }
         .video-card.featured {
@@ -133,10 +221,10 @@ Sord epk · HTML
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px; }
         .video-container.short { padding-bottom: 177.78%; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
- 
+
         .bandcamp-btn {
             display: inline-block;
-            background: #9d65ff;
+            background: #a10c0c;
             color: #fff;
             padding: 12px 24px;
             border-radius: 4px;
@@ -147,56 +235,56 @@ Sord epk · HTML
             font-size: 0.9rem;
             margin-top: 10px;
         }
-        .bandcamp-btn:hover { background: #b78eff; text-decoration: none; }
+        .bandcamp-btn:hover { background: #e01313; text-decoration: none; }
     </style>
 </head>
 <body>
- 
+
     <div class="film-grain"></div>
- 
+
     <div class="logo-container">
         <img src="logo.jpg" alt="SØRD Logo">
         <p class="epk-subhead">Electronic Press Kit</p>
     </div>
- 
+
     <h2>Bio</h2>
     <p>Born from deep personal adversity and unrelenting survival, SØRD is a darkwave/post-punk solo project based out of Oklahoma City. Following years of severe trial—from surviving homelessness and joblessness to overcoming deep personal betrayal—SØRD turned entirely to music as a vital lifeline.</p>
     <p>Backed by over seven years of active DJ experience in live audio selection and crowd dynamics, SØRD brings acute precision to live performance. The sound is driven by heavy, prominent basslines anchored by striking guitar leads—seamlessly shifting between syncopated, bite-heavy crunch and expansive, dreamy atmospheres. Combined with sparse, glassy melodic accents and dark organ textures, SØRD delivers complete artistic independence and raw post-punk urgency.</p>
     <p>The upcoming LP, <strong>Pray &amp; Prey</strong>, documents a visceral descent from nocturnal defiance to full systemic collapse.</p>
- 
+
     <h2>Listen on Bandcamp</h2>
     <div class="bc-embed-container" style="text-align:center;">
         <p>Full discography — EP <em>The Horror</em>, singles, and updates on the upcoming LP <em>Pray &amp; Prey</em>.</p>
         <a href="https://s0rd.bandcamp.com/" target="_blank" class="bandcamp-btn">Listen on Bandcamp</a>
     </div>
- 
+
     <h2>Featured Promoter Coverage</h2>
     <div class="video-card featured">
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/YAOy6X7TZbo" allowfullscreen></iframe>
         </div>
     </div>
- 
+
     <div class="sc-embed-container">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2387042586&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/s0rd" title="SØRD" target="_blank" style="color: #cccccc; text-decoration: none;">SØRD</a> · <a href="https://soundcloud.com/s0rd/ntn" title="NTN" target="_blank" style="color: #cccccc; text-decoration: none;">NTN</a></div>
     </div>
- 
+
     <h2>Streaming Links</h2>
     <ul>
         <li><strong>Bandcamp:</strong> <a href="https://s0rd.bandcamp.com/" target="_blank">s0rd.bandcamp.com</a></li>
         <li><strong>Linktree:</strong> <a href="https://linktr.ee/s0rd" target="_blank">linktr.ee/s0rd</a></li>
         <li><strong>Spotify:</strong> <a href="https://open.spotify.com/s/cs8f9IQ" target="_blank">SØRD on Spotify</a></li>
         <li><strong>Apple Music:</strong> <a href="https://music.apple.com/us/artist/s0rd" target="_blank">SØRD on Apple Music</a></li>
-        <li><strong>YouTube Channel:</strong> <a href="https://youtube.com/channel/UCCRdbfWScsjAhk6tT9fFwLw" target="_blank">@S0RDTUNES</a></li>
+        <li><strong>YouTube Channel:</strong> <a href="https://youtube.com/channel/UCCRdbfWScsjAhk6tT9fFwLw" target="_blank">@SØRDTUNES</a></li>
         <li><strong>SoundCloud:</strong> <a href="https://soundcloud.com/s0rd" target="_blank">SØRD on SoundCloud</a></li>
     </ul>
- 
+
     <div class="sc-embed-container">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2387057442&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/s0rd" title="SØRD" target="_blank" style="color: #cccccc; text-decoration: none;">SØRD</a> · <a href="https://soundcloud.com/s0rd/a-second-dance" title="A Second Dance" target="_blank" style="color: #cccccc; text-decoration: none;">A Second Dance</a></div>
     </div>
- 
+
     <h2>Instagram Feed</h2>
     <div class="instagram-wrapper">
         <behold-widget feed-id="GMHqEiS1UWh1rdqhfhl9"></behold-widget>
@@ -208,14 +296,14 @@ Sord epk · HTML
           })();
         </script>
     </div>
- 
+
     <div class="sc-embed-container">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2387057799&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/s0rd" title="SØRD" target="_blank" style="color: #cccccc; text-decoration: none;">SØRD</a> · <a href="https://soundcloud.com/s0rd/the-count" title="The Count" target="_blank" style="color: #cccccc; text-decoration: none;">The Count</a></div>
     </div>
- 
+
     <h2>Performance &amp; Visual Highlights</h2>
- 
+
     <div class="video-grid">
         <div class="video-card" style="grid-column: 1 / -1;">
             <h4>"Rot & Decay" Performance Video</h4>
@@ -223,28 +311,28 @@ Sord epk · HTML
                 <iframe src="https://www.youtube.com/embed/eym2l1j_99I" allowfullscreen></iframe>
             </div>
         </div>
- 
+
         <div class="video-card" style="grid-column: 1 / -1;">
             <h4>"Night Stalker" Live</h4>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/cbgz7iW5Cy0" allowfullscreen></iframe>
             </div>
         </div>
- 
+
         <div class="video-card">
             <h4>"CAPSAICIN" Live Performance</h4>
             <div class="video-container short">
                 <iframe src="https://www.youtube.com/embed/0ks-uAr8xQo" allowfullscreen></iframe>
             </div>
         </div>
- 
+
         <div class="video-card">
             <h4>"The Count" In-Studio</h4>
             <div class="video-container short">
                 <iframe src="https://www.youtube.com/embed/QkkNS-m0Lzc" allowfullscreen></iframe>
             </div>
         </div>
- 
+
         <div class="video-card">
             <h4>Latest Single Live</h4>
             <div class="video-container short">
@@ -252,20 +340,20 @@ Sord epk · HTML
             </div>
         </div>
     </div>
- 
+
     <div class="sc-embed-container">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2387058129&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/s0rd" title="SØRD" target="_blank" style="color: #cccccc; text-decoration: none;">SØRD</a> · <a href="https://soundcloud.com/s0rd/capsaicin" title="Capsaicin" target="_blank" style="color: #cccccc; text-decoration: none;">Capsaicin</a></div>
     </div>
- 
+
     <h2>Press Quote</h2>
     <blockquote>"Through betrayal, homelessness, and heartbreak, music has been the single constant keeping me grounded. SØRD is the product of taking all of that noise and turning it into raw, unrelenting energy."</blockquote>
- 
+
     <div class="sc-embed-container">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2387058381&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/s0rd" title="SØRD" target="_blank" style="color: #cccccc; text-decoration: none;">SØRD</a> · <a href="https://soundcloud.com/s0rd/5-breathless" title="Breathless" target="_blank" style="color: #cccccc; text-decoration: none;">Breathless</a></div>
     </div>
- 
+
     <h2>Stage &amp; Tech Rider</h2>
     <ul>
         <li><strong>Setup:</strong> Solo Performer (Bass/Guitar & Audio/DAW Host)</li>
@@ -274,49 +362,48 @@ Sord epk · HTML
         <li><strong>Power:</strong> 1 standard power outlet near performance area.</li>
         <li><strong>Outputs:</strong> Left / Right main outputs directly from AudioBox 96 into FOH PA system.</li>
     </ul>
- 
+
     <h2>Contact &amp; Socials</h2>
     <div class="contact-box">
         <p><strong>Email:</strong> <a href="mailto:sordtunes@gmail.com">sordtunes@gmail.com</a></p>
         <p><strong>Phone:</strong> (405) 923-2562</p>
         <p><strong>Bandcamp:</strong> <a href="https://s0rd.bandcamp.com/" target="_blank">s0rd.bandcamp.com</a></p>
-        <p><strong>Instagram:</strong> <a href="https://instagram.com/S0rdtunes" target="_blank">@S0rdtunes</a></p>
-        <p><strong>TikTok:</strong> <a href="https://tiktok.com/@s0rdtunes" target="_blank">@s0rdtunes</a></p>
+        <p><strong>Instagram:</strong> <a href="https://instagram.com/S0rdtunes" target="_blank">@SØRDtunes</a></p>
+        <p><strong>TikTok:</strong> <a href="https://tiktok.com/@s0rdtunes" target="_blank">@SØRDtunes</a></p>
         <p><strong>Mailing List:</strong> <a href="https://tr.ee/RUv5RcadJh" target="_blank">Join Email List</a></p>
     </div>
- 
+
     <h2>Horror</h2>
- 
+
     <div class="sc-embed-container">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2387052423&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/s0rd" title="SØRD" target="_blank" style="color: #cccccc; text-decoration: none;">SØRD</a> · <a href="https://soundcloud.com/s0rd/the-cure" title="The Cure" target="_blank" style="color: #cccccc; text-decoration: none;">The Cure</a></div>
     </div>
- 
+
     <div class="sc-embed-container">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2387053380&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/s0rd" title="SØRD" target="_blank" style="color: #cccccc; text-decoration: none;">SØRD</a> · <a href="https://soundcloud.com/s0rd/creature" title="Creature" target="_blank" style="color: #cccccc; text-decoration: none;">Creature</a></div>
     </div>
- 
+
     <div class="sc-embed-container">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2387053845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/s0rd" title="SØRD" target="_blank" style="color: #cccccc; text-decoration: none;">SØRD</a> · <a href="https://soundcloud.com/s0rd/daughter-of-the-moon" title="Daughter of the Moon" target="_blank" style="color: #cccccc; text-decoration: none;">Daughter of the Moon</a></div>
     </div>
- 
+
     <div class="sc-embed-container">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2387054400&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/s0rd" title="SØRD" target="_blank" style="color: #cccccc; text-decoration: none;">SØRD</a> · <a href="https://soundcloud.com/s0rd/rot-decay" title="Rot &amp; Decay" target="_blank" style="color: #cccccc; text-decoration: none;">Rot &amp; Decay</a></div>
     </div>
- 
+
     <div class="sc-embed-container">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2387054757&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/s0rd" title="SØRD" target="_blank" style="color: #cccccc; text-decoration: none;">SØRD</a> · <a href="https://soundcloud.com/s0rd/night-stalker" title="Night Stalker" target="_blank" style="color: #cccccc; text-decoration: none;">Night Stalker</a></div>
     </div>
- 
+
     <div class="sc-embed-container">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2387055261&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/s0rd" title="SØRD" target="_blank" style="color: #cccccc; text-decoration: none;">SØRD</a> · <a href="https://soundcloud.com/s0rd/terrified" title="Terrified" target="_blank" style="color: #cccccc; text-decoration: none;">Terrified</a></div>
     </div>
- 
+
 </body>
 </html>
- 
